@@ -66,10 +66,17 @@ hr {
     background-image: url("stars.png");
     padding: 20px 10px;
     border: blue 2px solid;
+    display: flex;
+    align-items: center;
 }
 
 .alien-quotes img {
     width: 100px;
+}
+
+.quote-box {
+    color: #fff;
+    /* border: #fff 3px solid; */
 }
 
 .task-creation-box {
