@@ -33,6 +33,14 @@ body {
     font-size: 20px;
 }
 
+hr {
+    width: 60%;
+    margin: 10px;
+    border: none;
+    height: 2px;
+    background-color: #fff;
+}
+
 .menu-btn-cont {
     position: absolute;
     top: 0;
@@ -54,12 +62,65 @@ body {
     border: 3px solid #6f00ff;
 }
 
-hr {
+.menu-panel {
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    color: #fff;
+    border: #fff 3px solid;
+    /* padding: 20px; */
+    height: 50%;
     width: 60%;
-    margin: 10px;
-    border: none;
-    height: 2px;
-    background-color: #fff;
+    border-radius: 2px;
+    font-size: 29px;
+}
+
+.exit-menu {
+    border: rgb(0, 255, 34) 3px solid;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 2px 0 0;
+}
+.exit-menu-btn {
+    padding: 3px 7px;
+    font-size: 20px;
+    background: none;
+    border: #fff 3px solid;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.exit-menu-btn:active {
+    color: red;
+    border: 3px solid red;
+}
+
+.themes-panel {
+    padding: 10px 20px;
+}
+
+.themes-panel button {
+    background: none;
+    border: 3px solid #fff;
+    padding: 5px;
+    color: #fff;
+    border-radius: 40px;
+    font-size: 20px;
+    margin: 2px;
+    cursor: pointer;
+}
+.themes-panel button:active {
+    color: #6f00ff;
+    border: 3px solid #6f00ff;
+}
+.themes-panel li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .alien-quotes {
