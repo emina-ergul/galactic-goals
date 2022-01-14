@@ -93,7 +93,7 @@ hr {
     border-radius: 2px;
     cursor: pointer;
 }
-.exit-menu-btn:active {
+.close-menu-btn:active {
     color: red;
     border: 3px solid red;
 }
@@ -163,6 +163,46 @@ hr {
     border: greenyellow 3.9px solid;
 }
 
+.task-input {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #010f05;
+    border: #fff 3px solid;
+    border-radius: 3px;
+    padding: 24px 20px;
+    height: 14em;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    text-align: center;
+}
+
+#task-input {
+    font-size: 23px;
+    border-radius: 3px;
+    padding: 3px 6px;
+    margin: 11px 0 33px 0;
+}
+
+.task-input-btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.task-input-btns button {
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.task-input-btns button:active {
+    transform: scale(1.2);
+}
+
 .task-list {
     border: rgb(208, 255, 0) 2px solid;
     color: #fff;
@@ -202,7 +242,10 @@ hr {
 }
 
 .stamp {
-    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
     margin-top: 16px;
     color: rgb(173, 0, 0);
     font-size: 18px;
