@@ -78,13 +78,13 @@ hr {
     font-size: 29px;
 }
 
-.exit-menu {
+.close-menu {
     border: rgb(0, 255, 34) 3px solid;
     display: flex;
     justify-content: flex-end;
     padding: 2px 2px 0 0;
 }
-.exit-menu-btn {
+.close-menu-btn {
     padding: 3px 7px;
     font-size: 20px;
     background: none;
