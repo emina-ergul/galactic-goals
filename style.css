@@ -135,9 +135,11 @@ hr {
     width: 100px;
 }
 
+
 .quote-box {
     color: #fff;
-    /* border: #fff 3px solid; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .task-creation-box {

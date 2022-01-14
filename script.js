@@ -1,13 +1,19 @@
-// const api ="https://type.fit/api/quotes";
+const api ="https://type.fit/api/quotes";
 
-// async function getapi(url)
-// {
-//   const response = await fetch(url);
-//   var data = await response.json();
-//   console.log(data);
-// }
+async function getapi(url)
+{
+  const response = await fetch(url);
+  const data = await response.json();
+  displayQuote(data)
+}
 
-// getapi(api);
+getapi(api);
+
+function displayQuote(data) {
+    let quoteNum = Math.floor(Math.random() * (1644 - 0) + 0)
+    const quoteDisplay = document.querySelector("#quote")
+    quoteDisplay.innerHTML = data[quoteNum].text
+}
 
 // menu
 const menuBtn = document.querySelector(".menu-btn")
@@ -70,19 +76,17 @@ addTaskBtn.addEventListener("click", () => {
 // task removal and completion
 function handleTask(e) {
     if(e.target.classList[1] === "fa-trash-alt") {
-        console.log("binned")
         const p1 = e.target.parentElement
         const p2 = p1.parentElement
         const p3 = p2.parentElement
         p3.remove()
     } else if (e.target.classList[1] === "fa-check-square") {
-        console.log("complete")
         const p1 = e.target.parentElement
         const p2 = p1.parentElement
         const p3 = p2.parentElement
         p3.style.opacity = "0.4"
         document.querySelector(".task-desc").style.textDecoration = "line-through"
-    }
+    } 
 }
 
 
