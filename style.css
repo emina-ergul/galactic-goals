@@ -76,6 +76,7 @@ hr {
     width: 60%;
     border-radius: 2px;
     font-size: 29px;
+    z-index: 1;
 }
 
 .close-menu {
@@ -98,7 +99,7 @@ hr {
     border: 3px solid red;
 }
 
-.themes-panel {
+/* .themes-panel {
     padding: 10px 20px;
 }
 
@@ -121,7 +122,7 @@ hr {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-}
+} */
 
 .alien-quotes {
     background-image: url("stars.png");
@@ -129,7 +130,7 @@ hr {
     border: blue 2px solid;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: #fff;
 }
 
@@ -194,6 +195,7 @@ hr {
     flex-direction: column;
     justify-content: space-between; */
     text-align: center;
+    z-index: 1;
 }
 
 #task-input {

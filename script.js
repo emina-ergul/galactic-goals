@@ -41,35 +41,35 @@ closeMenuBtn.addEventListener("click", () => {
 })
 
 // themes
-const deepSpaceBtn = document.querySelector(".deep-space")
-const newEarthBtn = document.querySelector(".new-earth")
-const themePanel = document.querySelector(".themes-panel")
-let deepSpace = true
+// const deepSpaceBtn = document.querySelector(".deep-space")
+// const newEarthBtn = document.querySelector(".new-earth")
+// const themePanel = document.querySelector(".themes-panel")
+// let deepSpace = true
 
-themePanel.addEventListener("click", (e) => {
-    const bgs = document.getElementsByClassName("bg")
-    const t = document.querySelector(".banner")
-    const tx = document.body.getElementsByTagName("p")
+// themePanel.addEventListener("click", (e) => {
+//     const bgs = document.getElementsByClassName("bg")
+//     const t = document.querySelector(".banner")
+//     const tx = document.body.getElementsByTagName("p")
     
-    if(e.target.classList[0] === "new-earth") {
-        document.querySelector(".alien-quotes").style.backgroundImage = "none"
-        t.style.color = "#000"
-        for(var o = 0; o < tx.length; o++) {
-            tx[o].style.color = "#000"
-        }
-        for(var i = 0; i < bgs.length; i++) {
-            bgs[i].style.backgroundColor = "#B0E4F0"
-        }
-    } else if (e.target.classList[0]==="deep-space") {
-        t.style.color = "#fff"
-        for(var o = 0; o < tx.length; o++) {
-            tx[o].style.color = "#fff"
-        }
-        for(var i = 0; i < bgs.length; i++) {
-            bgs[i].style.backgroundColor = "#000"
-            document.querySelector(".alien-quotes").style.backgroundImage = "url('stars.png')"
-    }
-}})
+//     if(e.target.classList[0] === "new-earth") {
+//         document.querySelector(".alien-quotes").style.backgroundImage = "none"
+//         t.style.color = "#000"
+//         for(var o = 0; o < tx.length; o++) {
+//             tx[o].style.color = "#000"
+//         }
+//         for(var i = 0; i < bgs.length; i++) {
+//             bgs[i].style.backgroundColor = "#B0E4F0"
+//         }
+//     } else if (e.target.classList[0]==="deep-space") {
+//         t.style.color = "#fff"
+//         for(var o = 0; o < tx.length; o++) {
+//             tx[o].style.color = "#fff"
+//         }
+//         for(var i = 0; i < bgs.length; i++) {
+//             bgs[i].style.backgroundColor = "#000"
+//             document.querySelector(".alien-quotes").style.backgroundImage = "url('stars.png')"
+//     }
+// }})
 
 
 // handling task input
