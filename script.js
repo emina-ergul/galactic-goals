@@ -120,14 +120,15 @@ addTaskBtn.addEventListener("click", () => {
 
 // task removal and completion
 function handleTask(e) {
+    const desc = document.querySelector(".task-desc")
     const p1 = e.target.parentElement
     const p2 = p1.parentElement
     const p3 = p2.parentElement
     if(e.target.classList[1] === "fa-trash-alt") {
         p3.remove()
     } else if (e.target.classList[1] === "fa-check-square") {
-        p3.style.opacity = "0.4"
-        document.querySelector(".task-desc").style.textDecoration = "line-through"
+        p3.style.opacity = "0.3"
+        p3.children[0].style.textDecoration = "line-through"
     } 
 }
 
