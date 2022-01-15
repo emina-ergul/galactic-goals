@@ -1,19 +1,32 @@
 const api ="https://type.fit/api/quotes";
 
-async function getapi(url)
-{
-  const response = await fetch(url);
-  const data = await response.json();
-  displayQuote(data)
+async function getQuote(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    const quoteNum = Math.floor(Math.random() * (1643 - 0) + 0)
+    const quote = document.querySelector("#quote")
+    const quoteStr = data[quoteNum].text
+    typeQuote(quote, quoteStr, 70)
 }
 
-getapi(api);
-
-function displayQuote(data) {
-    let quoteNum = Math.floor(Math.random() * (1644 - 0) + 0)
-    const quoteDisplay = document.querySelector("#quote")
-    quoteDisplay.innerHTML = data[quoteNum].text
+function typeQuote(element, text, speed) {
+    let index = 0
+    let timer = setInterval(function() {
+        if(index < text.length) {
+            element.append(text.charAt(index))
+            index++
+        } else {
+            clearInterval(timer)
+        }
+    },speed)
 }
+
+getQuote(api);
+
+// function displayQuote(data) {
+//     let quoteNum = Math.floor(Math.random() * (1643 - 0) + 0)
+//     document.querySelector("#quote").innerHTML = data[quoteNum].text
+// }
 
 // menu
 const menuBtn = document.querySelector(".menu-btn")
@@ -26,6 +39,38 @@ menuBtn.addEventListener("click", () => {
 closeMenuBtn.addEventListener("click", () => {
     document.querySelector(".menu-panel").style.display = "none"
 })
+
+// themes
+const deepSpaceBtn = document.querySelector(".deep-space")
+const newEarthBtn = document.querySelector(".new-earth")
+const themePanel = document.querySelector(".themes-panel")
+let deepSpace = true
+
+themePanel.addEventListener("click", (e) => {
+    const bgs = document.getElementsByClassName("bg")
+    const t = document.querySelector(".banner")
+    const tx = document.body.getElementsByTagName("p")
+    
+    if(e.target.classList[0] === "new-earth") {
+        document.querySelector(".alien-quotes").style.backgroundImage = "none"
+        t.style.color = "#000"
+        for(var o = 0; o < tx.length; o++) {
+            tx[o].style.color = "#000"
+        }
+        for(var i = 0; i < bgs.length; i++) {
+            bgs[i].style.backgroundColor = "#B0E4F0"
+        }
+    } else if (e.target.classList[0]==="deep-space") {
+        t.style.color = "#fff"
+        for(var o = 0; o < tx.length; o++) {
+            tx[o].style.color = "#fff"
+        }
+        for(var i = 0; i < bgs.length; i++) {
+            bgs[i].style.backgroundColor = "#000"
+            document.querySelector(".alien-quotes").style.backgroundImage = "url('stars.png')"
+    }
+}})
+
 
 // handling task input
 const newTaskBtn = document.querySelector(".new-task-btn")
@@ -75,15 +120,12 @@ addTaskBtn.addEventListener("click", () => {
 
 // task removal and completion
 function handleTask(e) {
+    const p1 = e.target.parentElement
+    const p2 = p1.parentElement
+    const p3 = p2.parentElement
     if(e.target.classList[1] === "fa-trash-alt") {
-        const p1 = e.target.parentElement
-        const p2 = p1.parentElement
-        const p3 = p2.parentElement
         p3.remove()
     } else if (e.target.classList[1] === "fa-check-square") {
-        const p1 = e.target.parentElement
-        const p2 = p1.parentElement
-        const p3 = p2.parentElement
         p3.style.opacity = "0.4"
         document.querySelector(".task-desc").style.textDecoration = "line-through"
     } 
