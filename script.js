@@ -120,7 +120,15 @@ function handleTask(e) {
     if(e.target.classList[1] === "fa-trash-alt") {
         p3.remove()
     } else if (e.target.classList[1] === "fa-check-square") {
-        p3.style.opacity = "0.3"
-        p3.children[0].style.textDecoration = "line-through"
+        p3.children[0].classList.toggle("cross-out")
+        if(p3.children[0].classList.contains("cross-out")) {
+            p3.style.opacity = "0.3"
+            p3.children[0].style.textDecoration = "line-through"
+        } else {
+            p3.style.opacity = "1"
+            p3.children[0].style.textDecoration = "none"
+        }
+        // p3.style.opacity = "0.3"
+        // p3.children[0].style.textDecoration = "line-through"
     } 
 }
