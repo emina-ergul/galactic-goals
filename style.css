@@ -10,9 +10,8 @@ body {
 }
 
 .wrap {
-    background-color: #000;
+    background-color: rgb(0, 0, 0);
     width: 100%;
-    
 }
 
 .banner {
@@ -126,7 +125,7 @@ hr {
 
 .alien-quotes {
     background-image: url("stars.png");
-    padding: 20px 10px;
+    padding: 20px 20px;
     border: blue 2px solid;
     display: flex;
     align-items: center;
@@ -136,6 +135,7 @@ hr {
 
 .alien-quotes img {
     width: 92px;
+    margin-right: 5px;
 }
 
 #quotes {
@@ -228,7 +228,7 @@ hr {
 }
 
 .task-cont {
-    border: 3px solid greenyellow;
+    border: 3px solid #3cd043;
     border-radius: 3px;
     padding: 10px 12px 10px 10px;
     display: flex;
@@ -253,7 +253,7 @@ hr {
 }
 
  .icon-cont button {
-    background: #000;
+    background: transparent;
     border: none;
     padding: 4px 5px;
     color: #fff;
@@ -269,10 +269,8 @@ hr {
 }
 
 .stamp {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
+    /* position: absolute;
+    bottom: 0; */
     text-align: center;
     color: rgb(173, 0, 0);
     font-size: 18px;
