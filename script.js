@@ -23,11 +23,6 @@ function typeQuote(element, text, speed) {
 
 getQuote(api);
 
-// function displayQuote(data) {
-//     let quoteNum = Math.floor(Math.random() * (1643 - 0) + 0)
-//     document.querySelector("#quote").innerHTML = data[quoteNum].text
-// }
-
 // menu
 const menuBtn = document.querySelector(".menu-btn")
 const closeMenuBtn = document.querySelector(".close-menu-btn")
@@ -70,7 +65,6 @@ closeMenuBtn.addEventListener("click", () => {
 //             document.querySelector(".alien-quotes").style.backgroundImage = "url('stars.png')"
 //     }
 // }})
-
 
 // handling task input
 const newTaskBtn = document.querySelector(".new-task-btn")
@@ -120,7 +114,6 @@ addTaskBtn.addEventListener("click", () => {
 
 // task removal and completion
 function handleTask(e) {
-    const desc = document.querySelector(".task-desc")
     const p1 = e.target.parentElement
     const p2 = p1.parentElement
     const p3 = p2.parentElement
@@ -131,6 +124,3 @@ function handleTask(e) {
         p3.children[0].style.textDecoration = "line-through"
     } 
 }
-
-
-
