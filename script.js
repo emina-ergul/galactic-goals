@@ -36,6 +36,28 @@ closeMenuBtn.addEventListener("click", () => {
     document.querySelector(".menu-panel").style.display = "none"
 })
 
+// music
+const playBtn = document.querySelector("#play-music")
+const trackTitle = document.querySelector("#curr-song")
+const track1 = new Audio("audios/void_vibes.mp3")
+// const trackList = []
+let currTrack = 0
+
+playBtn.addEventListener("click", () => {
+    if(currTrack === 0) {
+        track1.play()
+        track1.loop = true
+        trackTitle.innerHTML = "track 1 - void vibes"
+        playBtn.innerHTML = "<i class='fas fa-pause'></i>"
+        currTrack = 1
+    } else if (currTrack === 1) {
+        track1.pause()
+        trackTitle. innerHTML = "none"
+        playBtn.innerHTML = "<i class='fas fa-play'></i>"
+        currTrack = 0
+    }
+})
+
 // themes
 // const deepSpaceBtn = document.querySelector(".deep-space")
 // const newEarthBtn = document.querySelector(".new-earth")
