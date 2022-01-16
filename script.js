@@ -6,7 +6,7 @@ async function getQuote(url) {
     const quoteNum = Math.floor(Math.random() * (1643 - 0) + 0)
     const quote = document.querySelector("#quote")
     const quoteStr = data[quoteNum].text
-    typeQuote(quote, quoteStr, 70)
+    typeQuote(quote, quoteStr, 40)
 }
 
 function typeQuote(element, text, speed) {
