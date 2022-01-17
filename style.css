@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'VT323', monospace;
+    scroll-behavior: smooth;
 }
 
 body {

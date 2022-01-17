@@ -193,22 +193,23 @@ function handleTask(e) {
 // points
 const points = document.getElementById("points")
 const mssg3 = "You've completed 3 tasks! Check out the menu to see the new character you just unlocked."
-const mssg10 = "Wow 10 tasks complete... you jst unlocked another character!"
+const mssg10 = "Wow 10 tasks complete... you just unlocked another character!"
 let score = 0
 function collectPoints() {
     score += 1
     points.innerHTML = score
     if(score === 3) {
         console.log("3 points")
+        window.scroll(0,0)
         typeQuote(quote, mssg3, 30)
         document.querySelector(".char-panel").style.display = "flex"
     } else if (score === 10) {
         console.log("10points")
+        window.scroll(0,0)
         typeQuote(quote, mssg10, 30)
         gifs.push("sun-dancer.webp")
         charArr.push("sun dancer")
     }
-    
 }
 
 function losePoints() {
