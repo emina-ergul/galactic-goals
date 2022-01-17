@@ -1,12 +1,17 @@
 const api ="https://type.fit/api/quotes";
+const quote = document.querySelector("#quote")
 
 async function getQuote(url) {
     const response = await fetch(url);
-    const data = await response.json();
-    const quoteNum = Math.floor(Math.random() * (1643 - 0) + 0)
-    const quote = document.querySelector("#quote")
-    const quoteStr = data[quoteNum].text
-    typeQuote(quote, quoteStr, 40)
+    if(response.status >= 200 && response.status <= 299) {
+        const data = await response.json();
+        const quoteNum = Math.floor(Math.random() * 1643)
+        const quoteStr = data[quoteNum].text
+        typeQuote(quote, quoteStr, 40)
+    } else {
+        console.log(response.status, response.statusText);
+        quote.innerHTML = "To infinity and beyond"
+    }
 }
 
 function typeQuote(element, text, speed) {
@@ -39,7 +44,7 @@ closeMenuBtn.addEventListener("click", () => {
 // music
 const playBtn = document.querySelector("#play-music")
 const trackTitle = document.querySelector("#curr-song")
-const track1 = new Audio("audios/void_vibes.mp3")
+const track1 = new Audio("audios/light_speed_highway.mp3")
 // const trackList = []
 let currTrack = 0
 
@@ -47,7 +52,7 @@ playBtn.addEventListener("click", () => {
     if(currTrack === 0) {
         track1.play()
         track1.loop = true
-        trackTitle.innerHTML = "track 1 - void vibes"
+        trackTitle.innerHTML = "track 1 - light speed highway"
         playBtn.innerHTML = "<i class='fas fa-pause'></i>"
         currTrack = 1
     } else if (currTrack === 1) {
@@ -89,6 +94,22 @@ playBtn.addEventListener("click", () => {
 //     }
 // }})
 
+// get date
+const date = document.getElementById("date")
+function displayDate() {
+    const d = new Date()
+    let month = d.getUTCMonth() +1
+    if(month < 10) {
+        month = "0" + month
+    }
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const weekdayNum = d.getDay()
+    const weekdayName = dayNames[weekdayNum]
+    date.innerHTML = weekdayName + "<br>" + d.getUTCDate() + "." + month + "." + d.getUTCFullYear()
+}
+
+displayDate()
+
 // handling task input
 const newTaskBtn = document.querySelector(".new-task-btn")
 const task = document.querySelector("#task-input")
@@ -107,7 +128,13 @@ cancelBtn.addEventListener("click", () => {
 })
 
 addTaskBtn.addEventListener("click", () => {
-    new Audio("audios/add_task.mp3").play();
+    if(task.value === "") {
+        task.classList.remove("shake")
+        setTimeout(() => {
+            task.classList.add("shake")
+        }, 50)
+    } else {
+        new Audio("audios/add_task.mp3").play();
     const taskDiv = document.createElement("div")
     taskDiv.classList.add("task-cont")
     taskList.appendChild(taskDiv)
@@ -135,6 +162,7 @@ addTaskBtn.addEventListener("click", () => {
     task.value = ""
 
     iconDiv.addEventListener("click", handleTask)
+    }
 })
 
 // task removal and completion

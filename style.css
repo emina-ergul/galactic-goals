@@ -82,6 +82,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 }
 #play-music {
     margin: 10px;
@@ -102,6 +103,7 @@ hr {
 }
 #curr-song {
     font-size: 19px;
+    text-align: center;
 }
 
 .close-menu {
@@ -185,8 +187,32 @@ hr {
     background-image: url("stars.png");
     padding: 20px 10px 10px 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.date-cont {
+    font-size: 22px;
+    margin: 12px 16px;
+    text-align: center;
+    border: 3px red solid;
+}
+
+.points-cont {
+    font-size: 22px;
+    margin: 12px 16px;
+    border: 3px red solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .new-task-btn {
@@ -213,10 +239,6 @@ hr {
     border: #fff 3px solid;
     border-radius: 3px;
     padding: 24px 20px;
-    /* height: 14em; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
     text-align: center;
     z-index: 1;
 }
@@ -228,6 +250,23 @@ hr {
     padding: 3px 6px;
     margin: 17px 0 45px 0;
 }
+
+.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    30% {
+        transform: translateX(-5px);
+    }
+    60% {
+        transform: translateX(9px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 #task-input:focus {
     outline: none;
 }
