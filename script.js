@@ -42,7 +42,7 @@ closeMenuBtn.addEventListener("click", () => {
 })
 
 // music
-const playBtn = document.querySelector("#play-music")
+const playBtn = document.querySelector("#play-music-btn")
 const trackTitle = document.querySelector("#curr-song")
 const track1 = new Audio("audios/light_speed_highway.mp3")
 // const trackList = []
@@ -189,16 +189,26 @@ function handleTask(e) {
     } 
 }
 
+// points
 const points = document.getElementById("points")
 let score = 0
 function collectPoints() {
-    console.log("adding point")
     score += 1
     points.innerHTML = score
 }
 
 function losePoints() {
     console.log("losing point")
-    score -= 1
+    if(score === 0) {
+        score = 0
+    } else {
+        score -= 1
+    }
     points.innerHTML = score
 }
+
+let resetPoints = document.getElementById("p-reset-btn")
+resetPoints.addEventListener("click", () => {
+    score = 0
+    points.innerHTML = score
+})

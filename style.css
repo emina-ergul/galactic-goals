@@ -71,34 +71,31 @@ hr {
     background: #000;
     color: #fff;
     border: #fff 3px solid;
-    height: 50%;
+    /* height: 50%; */
     width: 60%;
     border-radius: 2px;
     font-size: 27px;
+    padding-bottom: 30px;
     z-index: 1;
 }
 
-.music-panel {
+.music-panel, .point-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
-#play-music {
+#play-music-btn, #p-reset-btn {
     margin: 10px;
     font-size: 19px;
     border-radius: 20px;
     border: #fff 3px solid;
     background-color: transparent;
     color: #fff;
-    padding: 7px;
-    width: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 9px 18px;
     cursor: pointer;
 }
-#play-music:active {
+#play-music:active, #p-reset-btn:active {
     transform: scale(1.15);
 }
 #curr-song {
