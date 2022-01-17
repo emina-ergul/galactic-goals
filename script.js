@@ -1,5 +1,23 @@
-const api ="https://type.fit/api/quotes";
+const gif = document.getElementById("gif")
 const quote = document.querySelector("#quote")
+
+function flyIn() {
+    gif.style.transform = "translateY(-100px)"
+    setTimeout(() => {
+        gif.style.transform = "translateY(00px)"
+    }, 200);
+    setTimeout(() => {
+        gif.style.opacity = "1"
+    }, 500);
+    setTimeout(() => {
+        quote.style.display = "inline"
+    }, 1200);
+}
+
+flyIn()
+
+const api ="https://type.fit/api/quotes";
+
 
 async function getQuote(url) {
     const response = await fetch(url);
@@ -7,7 +25,9 @@ async function getQuote(url) {
         const data = await response.json();
         const quoteNum = Math.floor(Math.random() * 1643)
         const quoteStr = data[quoteNum].text
-        typeQuote(quote, quoteStr, 40)
+        setTimeout(() => {
+            typeQuote(quote, quoteStr, 40)
+        }, 1200);
     } else {
         console.log(response.status, response.statusText);
         quote.innerHTML = "To infinity and beyond"
@@ -234,7 +254,6 @@ const caretL = document.querySelector(".caret-l")
 const caretR = document.querySelector(".caret-r")
 const charArr = ["UFO", "star banshee"]
 const gifs = ["alien.gif", "star-banshee.webp"]
-const gif = document.getElementById("gif")
 let currChar = 0
 let currGif = 0
 

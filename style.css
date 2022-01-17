@@ -72,8 +72,7 @@ hr {
     background: #000;
     color: #fff;
     border: #fff 3px solid;
-    /* height: 50%; */
-    width: 70%;
+    width: 80%;
     border-radius: 2px;
     font-size: 27px;
     padding-bottom: 30px;
@@ -195,10 +194,13 @@ hr {
 #gif {
     width: 92px;
     margin-right: 5px;
+    transition: 1s linear;
+    opacity: 0;
 }
 
-#quotes {
+#quote {
     position: relative;
+    display: none;
 }
 
 #quote::after {
@@ -332,7 +334,7 @@ hr {
     padding: 10px 12px 10px 10px;
     display: flex;
     justify-content: space-between;
-    margin: 18px 0;
+    margin: 18px 11px;
     background: rgb(8, 8, 8);
 }
 
