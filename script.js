@@ -179,9 +179,26 @@ function handleTask(e) {
         if(p3.children[0].classList.contains("cross-out")) {
             p3.style.opacity = "0.3"
             p3.children[0].style.textDecoration = "line-through"
+            collectPoints()
         } else {
             p3.style.opacity = "1"
             p3.children[0].style.textDecoration = "none"
+            losePoints()
         }
+        
     } 
+}
+
+const points = document.getElementById("points")
+let score = 0
+function collectPoints() {
+    console.log("adding point")
+    score += 1
+    points.innerHTML = score
+}
+
+function losePoints() {
+    console.log("losing point")
+    score -= 1
+    points.innerHTML = score
 }
