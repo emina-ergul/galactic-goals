@@ -16,6 +16,7 @@ async function getQuote(url) {
 
 function typeQuote(element, text, speed) {
     let index = 0
+    quote.innerHTML = ""
     let timer = setInterval(function() {
         if(index < text.length) {
             element.append(text.charAt(index))
@@ -191,10 +192,23 @@ function handleTask(e) {
 
 // points
 const points = document.getElementById("points")
+const mssg3 = "You've completed 3 tasks! Check out the menu to see the new character you just unlocked."
+const mssg10 = "Wow 10 tasks complete... you jst unlocked another character!"
 let score = 0
 function collectPoints() {
     score += 1
     points.innerHTML = score
+    if(score === 3) {
+        console.log("3 points")
+        typeQuote(quote, mssg3, 30)
+        document.querySelector(".char-panel").style.display = "flex"
+    } else if (score === 10) {
+        console.log("10points")
+        typeQuote(quote, mssg10, 30)
+        gifs.push("sun-dancer.webp")
+        charArr.push("sun dancer")
+    }
+    
 }
 
 function losePoints() {
@@ -212,3 +226,48 @@ resetPoints.addEventListener("click", () => {
     score = 0
     points.innerHTML = score
 })
+
+// selecting character
+const charCont = document.querySelector(".char-cont")
+const caretL = document.querySelector(".caret-l")
+const caretR = document.querySelector(".caret-r")
+const charArr = ["UFO", "star banshee"]
+const gifs = ["alien.gif", "star-banshee.webp"]
+const gif = document.getElementById("gif")
+let currChar = 0
+let currGif = 0
+
+charCont.addEventListener("click", (e) => {
+    if(e.target === caretR) {
+        console.log("right")
+        charForward()
+    } else if(e.target === caretL) {
+        console.log("left")
+        charBack()
+    }
+})
+
+function charForward() {
+    if(currChar === charArr.length -1) {
+        console.log(gifs.length)
+        currChar = 0
+        currGif = 0
+    } else {
+        currChar++
+        currGif++
+    }
+    document.getElementById("curr-char").innerHTML = charArr[currChar]
+    gif.src = "media/" + gifs[currGif]
+}
+
+function charBack() {
+    if(currChar === 0) {
+        currChar = charArr.length -1
+        currGif = gifs.length -1
+    } else {
+        currChar--
+        currGif--
+    }
+    document.getElementById("curr-char").innerHTML = charArr[currChar]
+    gif.src = "media/" + gifs[currGif]
+}
