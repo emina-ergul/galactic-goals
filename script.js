@@ -26,7 +26,7 @@ async function getQuote(url) {
         const quoteNum = Math.floor(Math.random() * 1643)
         const quoteStr = data[quoteNum].text
         setTimeout(() => {
-            typeQuote(quote, quoteStr, 40)
+            typeQuote(quote, quoteStr, 30)
         }, 1200);
     } else {
         console.log(response.status, response.statusText);
@@ -34,10 +34,11 @@ async function getQuote(url) {
     }
 }
 
+var timer = null
 function typeQuote(element, text, speed) {
     let index = 0
     quote.innerHTML = ""
-    let timer = setInterval(function() {
+    timer = setInterval(function() {
         if(index < text.length) {
             element.append(text.charAt(index))
             index++
@@ -54,13 +55,19 @@ const menuBtn = document.querySelector(".menu-btn")
 const closeMenuBtn = document.querySelector(".close-menu-btn")
 
 menuBtn.addEventListener("click", () => {
+    clearInterval(timer)
     new Audio("audios/select.mp3").play();
     document.querySelector(".menu-panel").style.display = "inline"
 })
 
+const phrases = ["Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there.", "It's quite fun watching all you humans complete your little daily tasks from up here.", "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.", "You're actually pretty cool... I'm totally inviting you to my 400th birthday party.", "Don't forget to take breaks, ok?", "Huh? Where am I from? ... thats for you and your species to find out...", "Some humans don't believe in Extraterrestrials? That's a bit rich from a species that hasn't figured out worm hole transportation yet...", "Some days are just difficult aren't they? Just know that if you are having one of those days, it will pass.", "Do you ever feel like someone or something is watching you..... ...surprise! It's literally me and my kind."]
 closeMenuBtn.addEventListener("click", () => {
     document.querySelector(".menu-panel").style.display = "none"
+    const randomPhrase = Math.floor(Math.random()* phrases.length)
+    console.log(randomPhrase)
+    typeQuote(quote, phrases[randomPhrase], 50)
 })
+
 
 // music
 const playBtn = document.querySelector("#play-music-btn")
