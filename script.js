@@ -60,19 +60,40 @@ menuBtn.addEventListener("click", () => {
     document.querySelector(".menu-panel").style.display = "inline"
 })
 
-const phrases = ["Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there.", "It's quite fun watching all you humans complete your little daily tasks from up here.", "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.", "You're actually pretty cool... I'm totally inviting you to my 400th birthday party.", "Don't forget to take breaks, ok?", "Huh? Where am I from? ... thats for you and your species to find out...", "Some humans don't believe in Extraterrestrials? That's a bit rich from a species that hasn't figured out worm hole transportation yet...", "Some days are just difficult aren't they? Just know that if you are having one of those days, it will pass.", "Do you ever feel like someone or something is watching you..... ...surprise! It's literally me and my kind."]
+const ufoChat = ["Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there.", "It's quite fun watching all you humans complete your little daily tasks from up here.", "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.", "You're actually pretty cool... wanna come to my 400th birthday party?", "Don't forget to take breaks, ok?", "Hmm? Where am I from? ...that's for you and your species to find out.", "Some humans don't believe in Extraterrestrials? That's a bit rich coming from a species that hasn't figured out worm hole transportation yet...", "Some days are just difficult aren't they? Just know that if you are having one of those days, it will pass.", "Do you ever feel like someone or something is watching you..... ...surprise! It's literally me and my kind."]
+
+const batChat = ["*Sigh* so much to do, so little time.", "What do I do in the voids of space? I don't know... I sleep a lot.","Time to be productive I guess.","Do you ever look up at the stars and ponder the meaning of life?", "I heard you humans have souls... that's interesting.", "I'm tired... but I'm supposed to be motivating you... so... umm... you got this I guess.", "............", "Don't overwork yourself, if your body feels like sleeping, you should sleep.......zzz", "zzz...zzz", "Don't forget to drink water...you humans need it."]
+
+const bunChat = ["Look alive! We've got goals to meet today!", "Commander Bun reporting for duty!", "You know what's worse than failing? Doing nothing at all!", "Life is full of difficulties, but with each one we meet, we grow stronger.", "What do you mean how can a bunny talk? I'm from the future, and it's not just bunnies that learn to talk in the future!", "Aim high and stay ambitious!", "Make sure you're getting enough sleep!", "Today is an opportunity to get one step closer to becoming the person you want to be.", "Life doesn't always go as planned, remember, tomorrow is always another day!"]
+
+const dancerChat = ["If you need a break, take a DANCE break!", "Need a boost? Go bathe in some sunshine!", "Tuuuurn the music UP!! Oh right after you get those tasks done of course.", "Isn't sunrise just the BEST time of day?!", "Yesssss let's get stuff done today!", "You should hear music made by my kind, it's 'out of this world'...GET IT?!", "I'll be your mood booster today!", "Finding purpose brings happiness! My purpose is dance haHAH!", "You're shining like a star today!", "Dance to the beat of your own drum!"]
+
 closeMenuBtn.addEventListener("click", () => {
+    let chat
+    switch (gif.src) {
+        case "media/alien.gif":
+            chat = ufoChat
+            break;
+        case "media/void_bat.webp":
+            chat = batChat
+            break;
+        case "media/bun.webp":
+            chat = bunChat
+            break;
+        case "media/sun-dancer.webp":
+            chat = dancerChat
+            break;
+    }
     document.querySelector(".menu-panel").style.display = "none"
-    const randomPhrase = Math.floor(Math.random()* phrases.length)
-    console.log(randomPhrase)
-    typeQuote(quote, phrases[randomPhrase], 50)
+    const randomPhrase = Math.floor(Math.random()* chat.length)
+    typeQuote(quote, chat[randomPhrase], 50)
 })
 
 
 // music
 const playBtn = document.querySelector("#play-music-btn")
 const trackTitle = document.querySelector("#curr-song")
-const track1 = new Audio("audios/light_speed_highway.mp3")
+const track1 = new Audio("audios/void_vibe.mp3")
 // const trackList = []
 let currTrack = 0
 
@@ -259,8 +280,8 @@ resetPoints.addEventListener("click", () => {
 const charCont = document.querySelector(".char-cont")
 const caretL = document.querySelector(".caret-l")
 const caretR = document.querySelector(".caret-r")
-const charArr = ["UFO", "star banshee"]
-const gifs = ["alien.gif", "star-banshee.webp"]
+const charArr = ["UFO", "void bat"]
+const gifs = ["alien.gif", "void_bat.webp"]
 let currChar = 0
 let currGif = 0
 

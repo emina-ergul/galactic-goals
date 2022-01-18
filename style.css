@@ -187,7 +187,6 @@ hr {
     align-items: center;
     justify-content: flex-start;
     color: #fff;
-    border: 2px solid green;
     min-height: 150px;
 }
 
@@ -237,13 +236,11 @@ hr {
     font-size: 22px;
     margin: 12px 16px;
     text-align: center;
-    border: 3px red solid;
 }
 
 .points-cont {
     font-size: 22px;
     margin: 12px 16px;
-    border: 3px red solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
