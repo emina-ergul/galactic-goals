@@ -96,8 +96,8 @@ const trackTitle = document.querySelector("#curr-track")
 const forward = document.querySelector(".music-f")
 const back = document.querySelector(".music-b")
 const playBtn = document.querySelector("#play-btn")
-const tracks = ["audios/light_speed_highway.mp3", "audios/void_vibe.mp3"]
-const trackTitles = [" Light Speed Highway ", " Void Vibes "]
+const tracks = ["audios/void_vibe.mp3", "audios/light_speed_highway.mp3"]
+const trackTitles = [" Void Vibes ", " Light Speed Highway "]
 let currTrack = 0
 let track = new Audio
 
@@ -105,11 +105,27 @@ forward.addEventListener("click", () => {
     currTrack+=1
     if(currTrack <= tracks.length -1) {
         track.src = tracks[currTrack]
-        playBtn.innerHTML = '<i class="fas fa-pause"></i>'
     } else {
         currTrack = 0
         track.src = tracks[currTrack]
     }
+    playBtn.innerHTML = '<i class="fas fa-pause"></i>'
+    track.play()
+    track.loop = true
+    trackTitle.innerHTML = trackTitles[currTrack]
+})
+
+back.addEventListener("click", () => {
+    currTrack-=1
+    console.log(currTrack)
+    if(currTrack < 0) {
+        currTrack = tracks.length -1
+        track.src = tracks[currTrack]
+    } else {
+        track.src = tracks[currTrack]
+        
+    }
+    playBtn.innerHTML = '<i class="fas fa-pause"></i>'
     track.play()
     track.loop = true
     trackTitle.innerHTML = trackTitles[currTrack]
