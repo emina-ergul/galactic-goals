@@ -66,7 +66,7 @@ hr {
 .menu-panel {
     display: none;
     position: absolute;
-    top: 45%;
+    top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #000;
@@ -86,11 +86,21 @@ hr {
     justify-content: flex-start;
 }
 .music-cont {
-    margin: 10px 0 20px 0;
+    border: red 2px solid;
+    margin: 16px 0 0 0;
+    height: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 60%;
 }
+.music-btns {
+    border: cyan 3px solid;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 #p-reset-btn {
     margin: 20px 0 20px 0;
     font-size: 19px;
@@ -101,8 +111,9 @@ hr {
     padding: 9px 18px;
     cursor: pointer;
 }
+
 #play-btn {
-    margin:  0 20px;
+    margin:  0 40px;
 }
 #play-btn:active, #p-reset-btn:active, .caret-btn:active {
     transform: scale(1.15);
@@ -114,13 +125,13 @@ hr {
 }
 
 .char-panel {
-    display: none;
+    display: flex;
 }
 .char-cont {
     border: 3px blue solid;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 70%;
     height: 100px;
 }
@@ -160,31 +171,6 @@ hr {
     color: red;
     border: 3px solid red;
 }
-
-/* .themes-panel {
-    padding: 10px 20px;
-}
-
-.themes-panel button {
-    background: none;
-    border: 3px solid #fff;
-    padding: 5px;
-    color: #fff;
-    border-radius: 40px;
-    font-size: 20px;
-    margin: 2px;
-    cursor: pointer;
-}
-.themes-panel button:active {
-    color: #6f00ff;
-    border: 3px solid #6f00ff;
-}
-.themes-panel li {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-} */
 
 .alien-quotes {
     background-image: url("media/stars.png");
@@ -270,13 +256,13 @@ hr {
 .task-input {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #070707;
     border: #fff 3px solid;
     border-radius: 3px;
-    padding: 24px 20px;
+    padding: 24px 30px;
     text-align: center;
     z-index: 1;
 }
@@ -311,14 +297,14 @@ hr {
 
 .task-input-btns {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .task-input-btns button {
-    padding: 7px 10px;
+    padding: 7px 11px;
     font-size: 22px;
     border-radius: 50px;
     border: #fff 3px solid;
-    background: #070707;
+    background: transparent;
     color: #fff;
     cursor: pointer;
 }

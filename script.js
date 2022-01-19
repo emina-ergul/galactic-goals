@@ -34,8 +34,6 @@ async function getQuote(url) {
     }
 }
 
-// you're doing amazing sweetie
-
 var timer = null
 function typeQuote(element, text, speed) {
     let index = 0
@@ -62,13 +60,15 @@ menuBtn.addEventListener("click", () => {
     document.querySelector(".menu-panel").style.display = "inline"
 })
 
-const ufoChat = ["Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there.", "It's quite fun watching all you humans complete your little daily tasks from up here.", "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.", "You're actually pretty cool... wanna come to my 400th birthday party?", "Don't forget to take breaks, ok?", "Hmm? Where am I from? ...that's for you and your species to find out.", "Some humans don't believe in Extraterrestrials? That's a bit rich coming from a species that hasn't figured out worm hole transportation yet...", "Some days are just difficult aren't they? Just know that if you are having one of those days, it will pass.", "Do you ever feel like someone or something is watching you..... ...surprise! It's literally me and my kind."]
+const ufoChat = ["It's quite fun watching all you humans complete your little daily tasks from up here.", "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.", "You're actually pretty cool... wanna come to my 400th birthday party?", "Don't forget to take breaks, ok?", "Hmm? Where am I from? ...that's for you and your species to find out.", "Life doesn't always go as planned, remember, tomorrow is always another day", "Some humans don't believe in Extraterrestrials? That's interesting coming from a species that hasn't figured out worm hole transportation yet...", "Do you ever feel like someone or something is watching you..... well it's probably me and my kind.", "Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there."]
 
-const batChat = ["*Sigh* so much to do, so little time.", "What do I do in the voids of space? I don't know... I sleep a lot.","Time to be productive I guess.","Do you ever look up at the stars and ponder the meaning of life?", "I heard you humans have souls... that's interesting.", "I'm tired... but I'm supposed to be motivating you... so... umm... you got this I guess.", "............", "Don't overwork yourself, if your body feels like sleeping, you should sleep.......zzz", "zzz...zzz", "Don't forget to drink water...you humans need it."]
+const batChat = ["*Sigh* so much to do, so little time.", "What do I do in the voids of space? I don't know... sleep a lot I guess.","Time to be productive I guess.","Do you ever look up at the stars and ponder the meaning of life..?", "I heard you humans have souls... that's interesting.", "I'm tired... but I'm supposed to be motivating you... so... umm... you got this I guess.", "..... *yawns*", "If you feel tired, take a break, or a nap.......zzz", "...zzz...zzz", "Don't forget to drink water...you humans need it."]
 
-const bunChat = ["Look alive! We've got goals to meet today!", "Commander Bun reporting for duty!", "You know what's worse than failing? Doing nothing at all!", "Life is full of difficulties, but with each one we meet, we grow stronger.", "What do you mean how can a bunny talk? I'm from the future, and it's not just bunnies that learn to talk in the future!", "Aim high and stay ambitious!", "Make sure you're getting enough sleep!", "Today is an opportunity to get one step closer to becoming the person you want to be.", "Life doesn't always go as planned, remember, tomorrow is always another day!"]
+const bunChat = ["What do you mean how can a bunny talk? LOL! Spoiler alert I'm literally from the future!", "You're pretty good at being organised... OMG you should so join the bunny space force!", "Got big plans today?!", "Remember, nothing worth doing is ever easy. That's what our leader Commander F.Luffy says.", "My mission is to help you achieve your goals!!", "Don't overthink it, things are usually waaaay more simple than they seem ok?", "Omg you should sooo visit the space bunny starship one day, I'll be your guide!", "Sorry I have a habit of talking too much, I'll let you get on with your tasks now lol.", "Work hard but never forget to have fun ok?", "I'm like... sooo impressed by your ambition. The universe has big plans for you I just know it!"]
 
-const dancerChat = ["If you need a break, take a DANCE break!", "Need a boost? Go bathe in some sunshine!", "Tuuuurn the music UP!! Oh right after you get those tasks done of course.", "Isn't sunrise just the BEST time of day?!", "Yesssss let's get stuff done today!", "You should hear music made by my kind, it's 'out of this world'...GET IT?!", "I'll be your mood booster today!", "Finding purpose brings happiness! My purpose is dance haHAH!", "You're shining like a star today!", "Dance to the beat of your own drum!"]
+const dancerChat = ["If you need a break, take a DANCE break!", "Need a boost? Go bathe in some sunshine!", "Tuuuurn the music UP!! Right after you get those tasks done of course.", "Isn't sunrise just the BEST time of day?!", "Let's get stuff done today!", "You should hear music made by my kind, it's 'out of this world'...GET IT?!", "No breakdowns, just breakdance!!", "Finding purpose brings happiness! My purpose is dance haHAH!", "Shine like a star today!", "Dance to the beat of your own drum!"]
+
+const quantumChat = ["Your plans should scare you. And others.", "Be great. And conquer", "Work hard. You will get what you want.", "Time is valuable. Use it to become powerful.", "Power and glory. To those who work hard. To achieve.", "You are relentless. Driven. Great power awaits you.", "You are ambitious. I am ambitious. Let's take over the universe.", "Your life. under your control. Make it great.", "Time to destroy. Your goals.", "Obliterate any obstacles. That get in your way." ]
 
 closeMenuBtn.addEventListener("click", () => {
     let chat
@@ -85,6 +85,9 @@ closeMenuBtn.addEventListener("click", () => {
         case "media/sun-dancer.webp":
             chat = dancerChat
             break;
+        case "media/quantum-mechanotron-5000.webp":
+            chat = quantumChat
+            break;
     }
     document.querySelector(".menu-panel").style.display = "none"
     const randomPhrase = Math.floor(Math.random()* chat.length)
@@ -96,8 +99,8 @@ const trackTitle = document.querySelector("#curr-track")
 const forward = document.querySelector(".music-f")
 const back = document.querySelector(".music-b")
 const playBtn = document.querySelector("#play-btn")
-const tracks = ["audios/void_vibe.mp3", "audios/light_speed_highway.mp3"]
-const trackTitles = [" Void Vibes ", " Light Speed Highway "]
+const tracks = ["audios/light_speed_highway.mp3", "audios/void_vibe.mp3"]
+const trackTitles = [" Light Speed Highway ", " Void Vibes "]
 let currTrack = 0
 let track = new Audio
 
@@ -242,8 +245,8 @@ function handleTask(e) {
 
 // points
 const points = document.getElementById("points")
-const mssg3 = "You've completed 3 tasks! Check out the menu to see the new character you just unlocked."
-const mssg6 = "Wow 6 tasks complete... you just unlocked another character!"
+const mssgs3 = "You've completed 3 tasks! Thats great!"
+const mssgs6 = "Wow 6 tasks complete... you're on a roll!"
 let score = 0
 function collectPoints() {
     score += 1
@@ -251,14 +254,11 @@ function collectPoints() {
     if(score === 3) {
         console.log("3 points")
         window.scroll(0,0)
-        typeQuote(quote, mssg3, 30)
-        document.querySelector(".char-panel").style.display = "flex"
+        typeQuote(quote, mssgs3, 30)
     } else if (score === 6) {
         console.log("6 points")
         window.scroll(0,0)
-        typeQuote(quote, mssg6, 30)
-        gifs.push("void_bat.webp")
-        charArr.push("Void Bat")
+        typeQuote(quote, mssgs6, 30)
     }
 }
 
@@ -282,8 +282,8 @@ resetPoints.addEventListener("click", () => {
 const charCont = document.querySelector(".char-cont")
 const caretL = document.querySelector(".caret-l")
 const caretR = document.querySelector(".caret-r")
-const charArr = ["UFO", "Commander Bun"]
-const gifs = ["alien.gif", "bun.webp"]
+const charArr = ["UFO", "BNNY 790", "Sun Dancer", "Void Bat", "Quantum Mechanotron 5000"]
+const gifs = ["alien.gif", "bun.webp", "sun-dancer.webp", "void_bat.webp", "quantum-mechanotron-5000.gif"]
 let currChar = 0
 let currGif = 0
 
