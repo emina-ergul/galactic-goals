@@ -21,8 +21,14 @@
             </div>
             <div class="music-panel">
                 <p>Music:</p>
-                <button id="play-music-btn"><i class="fas fa-play"></i></button>
-                <span id="curr-song">none</span>
+                <div class="music-cont">
+                    <div>
+                        <button class="caret-btn"><i class="fas fa-angle-left music-b"></i></button>
+                        <button class="caret-btn" id="play-btn"><i class="fas fa-caret-right"></i></button>
+                        <button class="caret-btn"><i class="fas fa-angle-right music-f"></i></button>
+                    </div>
+                    <span id="curr-track"> </span>
+                </div>
                 <hr>
             </div>
             <div class="point-panel">
@@ -32,7 +38,7 @@
             
             <div class="char-panel">
                 <hr>
-                <p>your character:</p>
+                <p>Companion:</p>
                 <div class="char-cont">
                     <button class="caret-btn"><i class="fas fa-caret-left caret-l"></i></button>
                     <span id="curr-char"> UFO </span>
@@ -57,7 +63,7 @@
                 <button class="cancel-btn">Cancel</button>
             </div>
         </div>
-        <div class="banner tc">
+        <div class="banner">
             <div class="menu-btn-cont">
                 <button class="menu-btn">MENU</button>
             </div>
@@ -65,7 +71,7 @@
             <hr>
             <P>- Reach for the stars today -</P>
         </div>
-        <div class="alien-quotes bg">
+        <div class="alien-quotes">
             <img id="gif" src="media/alien.gif" alt="Space Alien">
             <div class="quote-box">
                 <p id="quote"></p>

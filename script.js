@@ -30,9 +30,11 @@ async function getQuote(url) {
         }, 1200);
     } else {
         console.log(response.status, response.statusText);
-        quote.innerHTML = "To infinity and beyond"
+        quote.innerHTML = "'Non est ad astra mollis e terris via.' - 'There is no easy way from the earth to the stars.' - Seneca"
     }
 }
+
+// you're doing amazing sweetie
 
 var timer = null
 function typeQuote(element, text, speed) {
@@ -89,59 +91,43 @@ closeMenuBtn.addEventListener("click", () => {
     typeQuote(quote, chat[randomPhrase], 50)
 })
 
-
 // music
-const playBtn = document.querySelector("#play-music-btn")
-const trackTitle = document.querySelector("#curr-song")
-const track1 = new Audio("audios/void_vibe.mp3")
-// const trackList = []
+const trackTitle = document.querySelector("#curr-track")
+const forward = document.querySelector(".music-f")
+const back = document.querySelector(".music-b")
+const playBtn = document.querySelector("#play-btn")
+const tracks = ["audios/light_speed_highway.mp3", "audios/void_vibe.mp3"]
+const trackTitles = [" Light Speed Highway ", " Void Vibes "]
 let currTrack = 0
+let track = new Audio
 
-playBtn.addEventListener("click", () => {
-    if(currTrack === 0) {
-        track1.play()
-        track1.loop = true
-        trackTitle.innerHTML = "track 1 - light speed highway"
-        playBtn.innerHTML = "<i class='fas fa-pause'></i>"
-        currTrack = 1
-    } else if (currTrack === 1) {
-        track1.pause()
-        trackTitle. innerHTML = "none"
-        playBtn.innerHTML = "<i class='fas fa-play'></i>"
+forward.addEventListener("click", () => {
+    currTrack+=1
+    if(currTrack <= tracks.length -1) {
+        track.src = tracks[currTrack]
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>'
+    } else {
         currTrack = 0
+        track.src = tracks[currTrack]
     }
+    track.play()
+    track.loop = true
+    trackTitle.innerHTML = trackTitles[currTrack]
 })
 
-// themes
-// const deepSpaceBtn = document.querySelector(".deep-space")
-// const newEarthBtn = document.querySelector(".new-earth")
-// const themePanel = document.querySelector(".themes-panel")
-// let deepSpace = true
-
-// themePanel.addEventListener("click", (e) => {
-//     const bgs = document.getElementsByClassName("bg")
-//     const t = document.querySelector(".banner")
-//     const tx = document.body.getElementsByTagName("p")
-    
-//     if(e.target.classList[0] === "new-earth") {
-//         document.querySelector(".alien-quotes").style.backgroundImage = "none"
-//         t.style.color = "#000"
-//         for(var o = 0; o < tx.length; o++) {
-//             tx[o].style.color = "#000"
-//         }
-//         for(var i = 0; i < bgs.length; i++) {
-//             bgs[i].style.backgroundColor = "#B0E4F0"
-//         }
-//     } else if (e.target.classList[0]==="deep-space") {
-//         t.style.color = "#fff"
-//         for(var o = 0; o < tx.length; o++) {
-//             tx[o].style.color = "#fff"
-//         }
-//         for(var i = 0; i < bgs.length; i++) {
-//             bgs[i].style.backgroundColor = "#000"
-//             document.querySelector(".alien-quotes").style.backgroundImage = "url('stars.png')"
-//     }
-// }})
+playBtn.addEventListener("click", () => {
+    if(playBtn.innerHTML === '<i class="fas fa-caret-right"></i>') {
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>'
+        track.src = tracks[currTrack]
+        track.play()
+        track.loop = true
+    } else {
+        playBtn.innerHTML = '<i class="fas fa-caret-right"></i>'
+        track.pause()
+        track.currentTime = 0
+    }
+    trackTitle.innerHTML = trackTitles[currTrack]
+})
 
 // get date
 const date = document.getElementById("date")
@@ -241,7 +227,7 @@ function handleTask(e) {
 // points
 const points = document.getElementById("points")
 const mssg3 = "You've completed 3 tasks! Check out the menu to see the new character you just unlocked."
-const mssg10 = "Wow 10 tasks complete... you just unlocked another character!"
+const mssg6 = "Wow 6 tasks complete... you just unlocked another character!"
 let score = 0
 function collectPoints() {
     score += 1
@@ -251,12 +237,12 @@ function collectPoints() {
         window.scroll(0,0)
         typeQuote(quote, mssg3, 30)
         document.querySelector(".char-panel").style.display = "flex"
-    } else if (score === 10) {
-        console.log("10points")
+    } else if (score === 6) {
+        console.log("6 points")
         window.scroll(0,0)
-        typeQuote(quote, mssg10, 30)
-        gifs.push("sun-dancer.webp")
-        charArr.push("sun dancer")
+        typeQuote(quote, mssg6, 30)
+        gifs.push("void_bat.webp")
+        charArr.push("Void Bat")
     }
 }
 
@@ -280,8 +266,8 @@ resetPoints.addEventListener("click", () => {
 const charCont = document.querySelector(".char-cont")
 const caretL = document.querySelector(".caret-l")
 const caretR = document.querySelector(".caret-r")
-const charArr = ["UFO", "void bat"]
-const gifs = ["alien.gif", "void_bat.webp"]
+const charArr = ["UFO", "Commander Bun"]
+const gifs = ["alien.gif", "bun.webp"]
 let currChar = 0
 let currGif = 0
 
@@ -297,7 +283,6 @@ charCont.addEventListener("click", (e) => {
 
 function charForward() {
     if(currChar === charArr.length -1) {
-        console.log(gifs.length)
         currChar = 0
         currGif = 0
     } else {
