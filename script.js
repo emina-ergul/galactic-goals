@@ -1,5 +1,6 @@
 const gif = document.getElementById("gif")
 const quote = document.querySelector("#quote")
+let sfxMute = false
 
 function flyIn() {
     gif.style.transform = "translateY(-100px)"
@@ -56,7 +57,7 @@ const closeMenuBtn = document.querySelector(".close-menu-btn")
 
 menuBtn.addEventListener("click", () => {
     clearInterval(timer)
-    new Audio("audios/select.mp3").play();
+    playSFX(new Audio("audios/select.mp3"))
     document.querySelector(".menu-panel").style.display = "inline"
 })
 
@@ -148,6 +149,30 @@ playBtn.addEventListener("click", () => {
     trackTitle.innerHTML = trackTitles[currTrack]
 })
 
+// soundfx mute
+const soundsBtn = document.querySelector("#sounds")
+soundsBtn.addEventListener("click", mute)
+
+function mute() {
+    if(!sfxMute) {
+        sfxMute = true
+        soundsBtn.innerHTML = "turn on"
+    } else if(sfxMute) {
+        sfxMute = false
+        soundsBtn.innerHTML = "turn off"
+    }
+    playSFX(new Audio("audios/select.mp3"))
+}
+
+function playSFX(sound) {
+    if(sfxMute) {
+        return
+    } else {
+        sound.play()
+    }
+}
+
+
 // get date
 const date = document.getElementById("date")
 function displayDate() {
@@ -172,7 +197,7 @@ const addTaskBtn = document.querySelector(".add-task-btn")
 const taskList = document.querySelector(".task-list")
 
 newTaskBtn.addEventListener("click", () => {
-    new Audio("audios/select.mp3").play();
+    playSFX(new Audio("audios/select.mp3"))
     document.querySelector(".task-input").style.display = "inline"
 })
 
@@ -188,7 +213,7 @@ addTaskBtn.addEventListener("click", () => {
             task.classList.add("shake")
         }, 50)
     } else {
-        new Audio("audios/add_task.mp3").play();
+        playSFX(new Audio("audios/add_task.mp3"))
     const taskDiv = document.createElement("div")
     taskDiv.classList.add("task-cont")
     taskList.appendChild(taskDiv)
@@ -225,10 +250,10 @@ function handleTask(e) {
     const p2 = p1.parentElement
     const p3 = p2.parentElement
     if(e.target.classList[1] === "fa-trash-alt") {
-        new Audio("audios/bin.mp3").play();
+        playSFX(new Audio("audios/bin.mp3"))
         p3.remove()
     } else if (e.target.classList[1] === "fa-check-square") {
-        new Audio("audios/complete.mp3").play();
+        playSFX(new Audio("audios/complete.mp3"))
         p3.children[0].classList.toggle("cross-out")
         if(p3.children[0].classList.contains("cross-out")) {
             p3.style.opacity = "0.3"
@@ -274,6 +299,7 @@ function losePoints() {
 
 let resetPoints = document.getElementById("p-reset-btn")
 resetPoints.addEventListener("click", () => {
+    playSFX(new Audio("audios/add_task.mp3"))
     score = 0
     points.innerHTML = score
 })
