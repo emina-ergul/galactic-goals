@@ -131,13 +131,13 @@ closeMenuBtn.addEventListener("click", () => {
   console.log(gif.src)
   switch (gif.src) {
     
-    case "media/alien.gif":
+    case "https://emina-ergul.github.io/galactic-goals/media/alien.gif":
       chat = ufoChat;
       break;
-    case "media/void_bat.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/void_bat.webp":
       chat = batChat;
       break;
-    case "https://github.com/emina-ergul/galactic-goals/blob/main/media/bun.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/bun.webp":
       chat = bunChat;
       break;
     case "media/sun-dancer.webp":
@@ -394,13 +394,13 @@ function collectPoints() {
   points.innerHTML = score;
   let mssgs;
   switch (gif.src) {
-    case "media/alien.gif":
+    case "https://emina-ergul.github.io/galactic-goals/media/alien.gif":
         mssgs = alienMssgs;
       break;
-    case "media/void_bat.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/void_bat.webp":
         mssgs = batMssgs;
       break;
-    case "https://github.com/emina-ergul/galactic-goals/blob/main/media/bun.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/bun.webp":
         mssgs = bunMssgs;
       break;
     case "media/sun-dancer.webp":
