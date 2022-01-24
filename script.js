@@ -274,7 +274,7 @@ function charForward() {
     currGif++;
   }
   document.getElementById("curr-char").innerHTML = charArr[currChar];
-  gif.src = "https://github.com/emina-ergul/galactic-goals/blob/main/media/" + gifs[currGif];
+  gif.src = "./media/" + gifs[currGif];
 }
 
 function charBack() {
@@ -286,7 +286,7 @@ function charBack() {
     currGif--;
   }
   document.getElementById("curr-char").innerHTML = charArr[currChar];
-  gif.src = "https://github.com/emina-ergul/galactic-goals/blob/main/media/" + gifs[currGif];
+  gif.src = "./media/" + gifs[currGif];
 }
 
 const ufoChat = [
