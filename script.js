@@ -357,21 +357,21 @@ const quantumChat = [
 let chat;
 
 closeMenuBtn.addEventListener("click", () => {
-  console.log(gif.src)
   switch (gif.src) {
-    case "./media/alien.gif":
+    case "https://emina-ergul.github.io/galactic-goals/media/alien.gif":
       chat = ufoChat;
+      console.log("scr alien")
       break;
-    case "./media/void_bat.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/void_bat.webp":
       chat = batChat;
       break;
-    case "./media/bun.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/bun.webp":
       chat = bunChat;
       break;
-    case "./media/sun-dancer.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/sun-dancer.webp":
       chat = dancerChat;
       break;
-    case "./media/quantum-mechanotron-5000.gif":
+    case "https://emina-ergul.github.io/galactic-goals/media/quantum-mechanotron-5000.gif":
       chat = quantumChat;
       break;
   }
@@ -440,25 +440,27 @@ const quantMssgs = [
   "Would you like to plan galactic domination? After your work today is complete?",
 ];
 
+
 let score = 0;
 function collectPoints() {
   score += 1;
   points.innerHTML = score;
   let mssgs;
+  
   switch (gif.src) {
-    case "./media/alien.gif":
+    case "https://emina-ergul.github.io/galactic-goals/media/alien.gif":
         mssgs = alienMssgs;
       break;
-    case "./media/void_bat.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/void_bat.webp":
         mssgs = batMssgs;
       break;
-    case "./media/bun.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/bun.webp":
         mssgs = bunMssgs;
       break;
-    case "./media/sun-dancer.webp":
+    case "https://emina-ergul.github.io/galactic-goals/media/sun-dancer.webp":
         mssgs = dancerMssgs;
       break;
-    case "./media/quantum-mechanotron-5000.gif":
+    case "https://emina-ergul.github.io/galactic-goals/media/quantum-mechanotron-5000.gif":
         mssgs = quantMssgs;
       break;
   }
