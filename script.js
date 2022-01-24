@@ -115,7 +115,7 @@ const dancerChat = [
 
 const quantumChat = [
   "Your plans should scare you. And others.",
-  "Be great. And conquer",
+  "Be great. And conquer.",
   "Work hard. You will get what you want.",
   "Time is valuable. Use it to become the most powerful version of yourself.",
   "Power and glory. To those who work hard. To achieve.",
@@ -129,19 +129,19 @@ let chat;
 
 closeMenuBtn.addEventListener("click", () => {
   switch (gif.src) {
-    case "http://127.0.0.1:5500/media/alien.gif":
+    case "media/alien.gif":
       chat = ufoChat;
       break;
-    case "http://127.0.0.1:5500/media/void_bat.webp":
+    case "media/void_bat.webp":
       chat = batChat;
       break;
-    case "http://127.0.0.1:5500/media/bun.webp":
+    case "media/bun.webp":
       chat = bunChat;
       break;
-    case "http://127.0.0.1:5500/media/sun-dancer.webp":
+    case "media/sun-dancer.webp":
       chat = dancerChat;
       break;
-    case "http://127.0.0.1:5500/media/quantum-mechanotron-5000.gif":
+    case "media/quantum-mechanotron-5000.gif":
       chat = quantumChat;
       break;
   }
@@ -176,7 +176,6 @@ forward.addEventListener("click", () => {
 
 back.addEventListener("click", () => {
   currTrack -= 1;
-  console.log(currTrack);
   if (currTrack < 0) {
     currTrack = tracks.length - 1;
     track.src = tracks[currTrack];
@@ -393,19 +392,19 @@ function collectPoints() {
   points.innerHTML = score;
   let mssgs;
   switch (gif.src) {
-    case "http://127.0.0.1:5500/media/alien.gif":
+    case "media/alien.gif":
         mssgs = alienMssgs;
       break;
-    case "http://127.0.0.1:5500/media/void_bat.webp":
+    case "media/void_bat.webp":
         mssgs = batMssgs;
       break;
-    case "http://127.0.0.1:5500/media/bun.webp":
+    case "media/bun.webp":
         mssgs = bunMssgs;
       break;
-    case "http://127.0.0.1:5500/media/sun-dancer.webp":
+    case "media/sun-dancer.webp":
         mssgs = dancerMssgs;
       break;
-    case "http://127.0.0.1:5500/media/quantum-mechanotron-5000.gif":
+    case "media/quantum-mechanotron-5000.gif":
         mssgs = quantMssgs;
       break;
   }
@@ -466,10 +465,8 @@ let currGif = 0;
 
 charCont.addEventListener("click", (e) => {
   if (e.target === caretR) {
-    console.log("right");
     charForward();
   } else if (e.target === caretL) {
-    console.log("left");
     charBack();
   }
 });

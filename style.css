@@ -86,7 +86,6 @@ hr {
     justify-content: flex-start;
 }
 .music-cont {
-    border: red 2px solid;
     margin: 16px 0 0 0;
     height: 100px;
     display: flex;
@@ -95,7 +94,6 @@ hr {
     width: 60%;
 }
 .music-btns {
-    border: cyan 3px solid;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -128,7 +126,6 @@ hr {
     display: flex;
 }
 .char-cont {
-    border: 3px blue solid;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,7 +140,6 @@ hr {
 }
 
 #curr-char {
-    border: red 2px solid;
     text-align: center;
 }
 
@@ -184,7 +180,7 @@ hr {
 
 #gif {
     width: 92px;
-    margin-right: 5px;
+    margin-right: 10px;
     transition: 1s linear;
     opacity: 0;
 }
