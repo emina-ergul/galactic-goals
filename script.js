@@ -128,14 +128,16 @@ const quantumChat = [
 let chat;
 
 closeMenuBtn.addEventListener("click", () => {
+  console.log(gif.src)
   switch (gif.src) {
+    
     case "media/alien.gif":
       chat = ufoChat;
       break;
     case "media/void_bat.webp":
       chat = batChat;
       break;
-    case "media/bun.webp":
+    case "https://github.com/emina-ergul/galactic-goals/blob/main/media/bun.webp":
       chat = bunChat;
       break;
     case "media/sun-dancer.webp":
@@ -398,7 +400,7 @@ function collectPoints() {
     case "media/void_bat.webp":
         mssgs = batMssgs;
       break;
-    case "media/bun.webp":
+    case "https://github.com/emina-ergul/galactic-goals/blob/main/media/bun.webp":
         mssgs = bunMssgs;
       break;
     case "media/sun-dancer.webp":
