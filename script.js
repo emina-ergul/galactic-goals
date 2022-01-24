@@ -60,98 +60,6 @@ menuBtn.addEventListener("click", () => {
   document.querySelector(".menu-panel").style.display = "inline";
 });
 
-const ufoChat = [
-  "It's quite fun watching all you humans complete your little daily tasks from up here.",
-  "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.",
-  "You're actually very cool and interesting. I'll make sure to invite you to my 400th birthday party.",
-  "Don't forget to take breaks, ok?",
-  "Hmm? Where am I from? ...that's for you and your species to find out.",
-  "Life doesn't always go as planned, remember, tomorrow is always another day.",
-  "Some humans don't believe in Extraterrestrials? That's interesting coming from a species that hasn't figured out worm hole transportation yet...",
-  "Do you ever feel like someone or something is watching you..... well it's probably me and my kind.",
-  "Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there.",
-  "Hello human.",
-];
-
-const batChat = [
-  "*Sigh* so much to do, so little time.",
-  "What do I do in the voids of space? I don't know... sleep a lot I guess.",
-  "Time to be productive I guess.",
-  "Do you ever look up at the stars and ponder the meaning of life..?",
-  "I heard you humans have souls... that's interesting.",
-  "I'm tired... but I'm supposed to be motivating you... so... umm... you got this I guess.",
-  "..... *yawns*",
-  "If you feel tired, take a break, or a nap.......zzz",
-  "...zzz...zzz",
-  "Don't forget to drink water...you humans need it.",
-  "Hey...",
-];
-
-const bunChat = [
-  "What do you mean how can a bunny talk? LOL! Spoiler alert I'm literally from the future!",
-  "You're pretty good at being organised... OMG you should so join the bunny space force!",
-  "Got big plans today?!",
-  "Remember, nothing worth doing is ever easy. That's what our leader Commander F.Luffy says.",
-  "My mission is to help you achieve your goals!!",
-  "Don't overthink it, things are usually waaaay more simple than they seem ok?",
-  "Omg you should sooo visit the space bunny starship one day, I'll be your guide!",
-  "Sorry I have a habit of talking too much, I'll let you get on with your tasks now lol.",
-  "Work hard but never forget to have fun ok?",
-  "What's on your mind today??",
-];
-
-const dancerChat = [
-  "If you need a break, take a DANCE break!",
-  "Need a boost? Go bathe in some sunshine!",
-  "Tuuuurn the music UP!! Right after you get those tasks done of course.",
-  "Isn't sunrise just the BEST time of day?!",
-  "Let's get stuff done today!",
-  "You should hear music made by my kind, it's 'out of this world'...GET IT?!",
-  "No breakdowns, just breakdance!!",
-  "Finding purpose brings happiness! My purpose is dance haHAH!",
-  "Shine like a star today!",
-  "Dance to the beat of your own drum!",
-];
-
-const quantumChat = [
-  "Your plans should scare you. And others.",
-  "Be great. And conquer.",
-  "Work hard. You will get what you want.",
-  "Time is valuable. Use it to become the most powerful version of yourself.",
-  "Power and glory. To those who work hard. To achieve.",
-  "You are relentless. Driven. Great power awaits you.",
-  "You are ambitious. I am ambitious. Let's take over the universe.",
-  "Your life. under your control. Make it great.",
-  "Time to destroy. Your goals.",
-  "Obliterate any obstacles. That get in your way.",
-];
-let chat;
-
-closeMenuBtn.addEventListener("click", () => {
-  console.log(gif.src)
-  switch (gif.src) {
-    
-    case "https://emina-ergul.github.io/galactic-goals/media/alien.gif":
-      chat = ufoChat;
-      break;
-    case "https://emina-ergul.github.io/galactic-goals/media/void_bat.webp":
-      chat = batChat;
-      break;
-    case "https://emina-ergul.github.io/galactic-goals/media/bun.webp":
-      chat = bunChat;
-      break;
-    case "media/sun-dancer.webp":
-      chat = dancerChat;
-      break;
-    case "media/quantum-mechanotron-5000.gif":
-      chat = quantumChat;
-      break;
-  }
-  document.querySelector(".menu-panel").style.display = "none";
-  const randomPhrase = Math.floor(Math.random() * chat.length);
-  typeQuote(quote, chat[randomPhrase], 50);
-});
-
 // music
 const trackTitle = document.querySelector("#curr-track");
 const forward = document.querySelector(".music-f");
@@ -328,6 +236,150 @@ function handleTask(e) {
   }
 }
 
+// selecting character
+const charCont = document.querySelector(".char-cont");
+const caretL = document.querySelector(".caret-l");
+const caretR = document.querySelector(".caret-r");
+const charArr = [
+  "UFO",
+  "BNNY 790",
+  "Sun Dancer",
+  "Void Bat",
+  "Quantum Mechanotron 5000",
+];
+const gifs = [
+  "alien.gif",
+  "bun.webp",
+  "sun-dancer.webp",
+  "void_bat.webp",
+  "quantum-mechanotron-5000.gif",
+];
+let currChar = 0;
+let currGif = 0;
+
+charCont.addEventListener("click", (e) => {
+  if (e.target === caretR) {
+    charForward();
+  } else if (e.target === caretL) {
+    charBack();
+  }
+});
+
+function charForward() {
+  if (currChar === charArr.length - 1) {
+    currChar = 0;
+    currGif = 0;
+  } else {
+    currChar++;
+    currGif++;
+  }
+  document.getElementById("curr-char").innerHTML = charArr[currChar];
+  gif.src = "https://github.com/emina-ergul/galactic-goals/blob/main/media/" + gifs[currGif];
+}
+
+function charBack() {
+  if (currChar === 0) {
+    currChar = charArr.length - 1;
+    currGif = gifs.length - 1;
+  } else {
+    currChar--;
+    currGif--;
+  }
+  document.getElementById("curr-char").innerHTML = charArr[currChar];
+  gif.src = "https://github.com/emina-ergul/galactic-goals/blob/main/media/" + gifs[currGif];
+}
+
+const ufoChat = [
+  "It's quite fun watching all you humans complete your little daily tasks from up here.",
+  "you know, I've seen a lot of this universe, you humans are very resilient creatures, you don't give up easily.",
+  "You're actually very cool and interesting. I'll make sure to invite you to my 400th birthday party.",
+  "Don't forget to take breaks, ok?",
+  "Hmm? Where am I from? ...that's for you and your species to find out.",
+  "Life doesn't always go as planned, remember, tomorrow is always another day.",
+  "Some humans don't believe in Extraterrestrials? That's interesting coming from a species that hasn't figured out worm hole transportation yet...",
+  "Do you ever feel like someone or something is watching you..... well it's probably me and my kind.",
+  "Have you heard about that virus that's been spreading throughout the galaxy? Apparently it's pretty contagious... stay safe out there.",
+  "Hello human.",
+];
+
+const batChat = [
+  "*Sigh* so much to do, so little time.",
+  "What do I do in the voids of space? I don't know... sleep a lot I guess.",
+  "Time to be productive I guess.",
+  "Do you ever look up at the stars and ponder the meaning of life..?",
+  "I heard you humans have souls... that's interesting.",
+  "I'm tired... but I'm supposed to be motivating you... so... umm... you got this I guess.",
+  "..... *yawns*",
+  "If you feel tired, take a break, or a nap.......zzz",
+  "...zzz...zzz",
+  "Don't forget to drink water...you humans need it.",
+  "Hey...",
+];
+
+const bunChat = [
+  "What do you mean how can a bunny talk? LOL! Spoiler alert I'm literally from the future!",
+  "You're pretty good at being organised... OMG you should so join the bunny space force!",
+  "Got big plans today?!",
+  "Remember, nothing worth doing is ever easy. That's what our leader Commander F.Luffy says.",
+  "My mission is to help you achieve your goals!!",
+  "Don't overthink it, things are usually waaaay more simple than they seem ok?",
+  "Omg you should sooo visit the space bunny starship one day, I'll be your guide!",
+  "Sorry I have a habit of talking too much, I'll let you get on with your tasks now lol.",
+  "Work hard but never forget to have fun ok?",
+  "What's on your mind today??",
+];
+
+const dancerChat = [
+  "If you need a break, take a DANCE break!",
+  "Need a boost? Go bathe in some sunshine!",
+  "Tuuuurn the music UP!! Right after you get those tasks done of course.",
+  "Isn't sunrise just the BEST time of day?!",
+  "Let's get stuff done today!",
+  "You should hear music made by my kind, it's 'out of this world'...GET IT?!",
+  "No breakdowns, just breakdance!!",
+  "Finding purpose brings happiness! My purpose is dance haHAH!",
+  "Shine like a star today!",
+  "Dance to the beat of your own drum!",
+];
+
+const quantumChat = [
+  "Your plans should scare you. And others.",
+  "Be great. And conquer.",
+  "Work hard. You will get what you want.",
+  "Time is valuable. Use it to become the most powerful version of yourself.",
+  "Power and glory. To those who work hard. To achieve.",
+  "You are relentless. Driven. Great power awaits you.",
+  "You are ambitious. I am ambitious. Let's take over the universe.",
+  "Your life. under your control. Make it great.",
+  "Time to destroy. Your goals.",
+  "Obliterate any obstacles. That get in your way.",
+];
+let chat;
+
+closeMenuBtn.addEventListener("click", () => {
+  console.log(gif.src)
+  switch (gif.src) {
+    case "./media/alien.gif":
+      chat = ufoChat;
+      break;
+    case "./media/void_bat.webp":
+      chat = batChat;
+      break;
+    case "./media/bun.webp":
+      chat = bunChat;
+      break;
+    case "./media/sun-dancer.webp":
+      chat = dancerChat;
+      break;
+    case "./media/quantum-mechanotron-5000.gif":
+      chat = quantumChat;
+      break;
+  }
+  document.querySelector(".menu-panel").style.display = "none";
+  const randomPhrase = Math.floor(Math.random() * chat.length);
+  typeQuote(quote, chat[randomPhrase], 50);
+});
+
 // points
 const points = document.getElementById("points");
 const alienMssgs = [
@@ -394,24 +446,23 @@ function collectPoints() {
   points.innerHTML = score;
   let mssgs;
   switch (gif.src) {
-    case "https://emina-ergul.github.io/galactic-goals/media/alien.gif":
+    case "./media/alien.gif":
         mssgs = alienMssgs;
       break;
-    case "https://emina-ergul.github.io/galactic-goals/media/void_bat.webp":
+    case "./media/void_bat.webp":
         mssgs = batMssgs;
       break;
-    case "https://emina-ergul.github.io/galactic-goals/media/bun.webp":
+    case "./media/bun.webp":
         mssgs = bunMssgs;
       break;
-    case "media/sun-dancer.webp":
+    case "./media/sun-dancer.webp":
         mssgs = dancerMssgs;
       break;
-    case "media/quantum-mechanotron-5000.gif":
+    case "./media/quantum-mechanotron-5000.gif":
         mssgs = quantMssgs;
       break;
   }
   const randomMssg = Math.floor(Math.random() * mssgs.length)
-  console.log(randomMssg)
   if (score === 3) {
     console.log("3 points");
     window.scroll(0, 0);
@@ -444,55 +495,3 @@ resetPoints.addEventListener("click", () => {
   points.innerHTML = score;
 });
 
-// selecting character
-const charCont = document.querySelector(".char-cont");
-const caretL = document.querySelector(".caret-l");
-const caretR = document.querySelector(".caret-r");
-const charArr = [
-  "UFO",
-  "BNNY 790",
-  "Sun Dancer",
-  "Void Bat",
-  "Quantum Mechanotron 5000",
-];
-const gifs = [
-  "alien.gif",
-  "bun.webp",
-  "sun-dancer.webp",
-  "void_bat.webp",
-  "quantum-mechanotron-5000.gif",
-];
-let currChar = 0;
-let currGif = 0;
-
-charCont.addEventListener("click", (e) => {
-  if (e.target === caretR) {
-    charForward();
-  } else if (e.target === caretL) {
-    charBack();
-  }
-});
-
-function charForward() {
-  if (currChar === charArr.length - 1) {
-    currChar = 0;
-    currGif = 0;
-  } else {
-    currChar++;
-    currGif++;
-  }
-  document.getElementById("curr-char").innerHTML = charArr[currChar];
-  gif.src = "media/" + gifs[currGif];
-}
-
-function charBack() {
-  if (currChar === 0) {
-    currChar = charArr.length - 1;
-    currGif = gifs.length - 1;
-  } else {
-    currChar--;
-    currGif--;
-  }
-  document.getElementById("curr-char").innerHTML = charArr[currChar];
-  gif.src = "media/" + gifs[currGif];
-}
