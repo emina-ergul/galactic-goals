@@ -13,4 +13,4 @@ I enjoyed coming up with the concept and characters, and may build on this in th
 <img src="./media/ss2.png">
 
 # Mobile:
-<img src="./media/ssm.jpg">
+<img src="./media/ssm.jpg" style="height: 600px">
