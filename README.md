@@ -7,6 +7,8 @@ There is also a music player that so far only has 2 tracks to play, both of whic
 
 I enjoyed coming up with the concept and characters, and may build on this in the future.
 
+Live project here: <a href="https://emina-ergul.github.io/galactic-goals/">Galactic Goals<a>
+
 # Desktop:
 <img src="./media/ss1.png">
 
